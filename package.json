@@ -1,5 +1,5 @@
 {
-  "name": "@jeyz/event-bus",
+  "name": "@dogomedia/event-bus",
   "description": "React Event Bus library for post messaging in JS/TS",
   "license": "MIT",
   "version": "0.1.0",

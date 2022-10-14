@@ -1,0 +1,17 @@
+steps:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:alpine'
+  entrypoint: '/bin/bash'
+  args: ['-c',
+         'gcloud artifacts print-settings npm --project=$PROJECT_ID --repository=$_REPOSITORY --location=$_LOCATION --scope=$_SCOPE >> .npmrc']
+- name: node:lts-alpine
+  entrypoint: npx
+  args: ['google-artifactregistry-auth']
+- name: node:lts-alpine
+  entrypoint: npx
+  args: ['npm', 'install']
+- name: node:lts-alpine
+  entrypoint: npx
+  args: ['npm', 'run', 'build']
+- name: node:lts-alpine
+  entrypoint: npx
+  args: ['npm', 'publish']
